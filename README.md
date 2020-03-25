@@ -1,4 +1,6 @@
-# notetaker
+![Screenshot](ScreenShot1)
+![Screenshot2](ScreenShot2)
+
 # Unit 11 Express Homework: Note Taker
 ## Description
 
