@@ -1,5 +1,5 @@
-![Screenshot](ScreenShot1)
-![Screenshot2](ScreenShot2)
+![Screenshot](ScreenShot1.png)
+![Screenshot2](ScreenShot2.png)
 
 # Unit 11 Express Homework: Note Taker
 ## Description
