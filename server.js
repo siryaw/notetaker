@@ -9,13 +9,13 @@ let notesData = [];
 //parsing
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "Develop/public")));
+app.use(express.static(path.join(__dirname, "/public")));
 
 
 app.get("/api/notes", function(err, res) {
   try {
 
-    notesData = fs.readFileSync("Develop/db/db.json", "utf8");
+    notesData = fs.readFileSync("/db/db.json", "utf8");
     console.log("hello!");
     
     notesData = JSON.parse(notesData);
@@ -28,21 +28,21 @@ app.get("/api/notes", function(err, res) {
 });
 
 app.get("/notes", function(req, res) {
-    res.sendFile(path.join(__dirname, "Develop/public/notes.html"));
+    res.sendFile(path.join(__dirname, "/public/notes.html"));
   });
   
   app.get("*", function(req, res) {
-    res.sendFile(path.join(__dirname, "Develop/public/index.html"));
+    res.sendFile(path.join(__dirname, "/public/index.html"));
   });
   
   app.get("/api/notes", function(req, res) {
-    return res.sendFile(path.json(__dirname, "Develop/db/db.json"));
+    return res.sendFile(path.json(__dirname, "/db/db.json"));
   });
 
 app.post("/api/notes", function(req, res) {
   try {
     
-    notesData = fs.readFileSync("./Develop/db/db.json", "utf8");
+    notesData = fs.readFileSync("./db/db.json", "utf8");
     console.log(notesData);
 
     notesData = JSON.parse(notesData);
@@ -53,7 +53,7 @@ app.post("/api/notes", function(req, res) {
 
     notesData = JSON.stringify(notesData);
     
-    fs.writeFile("./Develop/db/db.json", notesData, "utf8", function(err) {
+    fs.writeFile("./db/db.json", notesData, "utf8", function(err) {
       
       if (err) throw err;
     });
@@ -70,7 +70,7 @@ app.post("/api/notes", function(req, res) {
 app.delete("/api/notes/:id", function(req, res) {
   try {
     
-    notesData = fs.readFileSync("./Develop/db/db.json", "utf8");
+    notesData = fs.readFileSync("./db/db.json", "utf8");
  
     notesData = JSON.parse(notesData);
     
@@ -80,7 +80,7 @@ app.delete("/api/notes/:id", function(req, res) {
    
     notesData = JSON.stringify(notesData);
    
-    fs.writeFile("./Develop/db/db.json", notesData, "utf8", function(err) {
+    fs.writeFile("./db/db.json", notesData, "utf8", function(err) {
      
       if (err) throw err;
     });
